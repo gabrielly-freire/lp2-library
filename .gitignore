@@ -1,0 +1,37 @@
+*.class
+
+target/
+
+*.jar
+*.war
+
+.classpath
+.project
+.settings/
+
+.idea/
+*.iml
+
+.vscode/
+
+*~
+*.swp
+*.tmp
+
+*.log
+
+*.fxml~  # Arquivos temporários do Scene Builder
+
+.DS_Store  # Para MacOS
+Thumbs.db  # Para Windows
+
+nbproject/private/  # Para NetBeans
+build/  # Para Gradle
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
