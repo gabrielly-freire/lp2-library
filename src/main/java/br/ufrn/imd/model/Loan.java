@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 public class Loan {
     
     private String id;
-    private String userId;
-    private String bookId;
+    private Long userId;
+    private Long bookId;
     private LocalDate loanDate;
     private LocalDate dueDate;
     private LocalDate returnDate;

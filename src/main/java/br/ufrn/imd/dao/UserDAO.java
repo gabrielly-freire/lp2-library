@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufrn.imd.database.DatabaseException;
+import br.ufrn.imd.exception.DatabaseException;
 import br.ufrn.imd.model.User;
 
 /**
@@ -85,7 +85,7 @@ public class UserDAO {
 
             if (rs.next()) {
                 User user = new User();
-                user.setId(rs.getString("id"));
+                user.setId(rs.getLong("id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPhoneNumber(rs.getString("phone_number"));
@@ -132,7 +132,7 @@ public class UserDAO {
 
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getString("id"));
+                user.setId(rs.getLong("id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPhoneNumber(rs.getString("phone_number"));
@@ -183,7 +183,7 @@ public class UserDAO {
 
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getString("id"));
+                user.setId(rs.getLong("id"));
                 user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPhoneNumber(rs.getString("phone_number"));

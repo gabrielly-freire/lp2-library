@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufrn.imd.database.DatabaseException;
+import br.ufrn.imd.exception.DatabaseException;
 import br.ufrn.imd.model.Loan;
 
 /**
@@ -39,12 +39,12 @@ public class LoanDAO {
             ps = connection.prepareStatement(
                     "INSERT INTO loan (user_id, book_id, loan_date, due_date, return_date, is_returned) VALUES (?, ?, ?, ?, ?, ?)");
 
-            ps.setString(1, loan.getUserId());
-            ps.setString(2, loan.getBookId());
+            ps.setLong(1, loan.getUserId());
+            ps.setLong(2, loan.getBookId());
             ps.setDate(3, Date.valueOf(loan.getLoanDate()));
             ps.setDate(4, Date.valueOf(loan.getDueDate()));
             ps.setDate(5, Date.valueOf(loan.getReturnDate()));
-            ps.setBoolean(6, false);
+            ps.setBoolean(6, loan.getIsReturned());
 
             int rowsAffected = ps.executeUpdate();
 
@@ -91,8 +91,8 @@ public class LoanDAO {
             if (rs.next()) {
                 Loan loan = new Loan();
                 loan.setId(rs.getString("id"));
-                loan.setUserId(rs.getString("user_id"));
-                loan.setBookId(rs.getString("book_id"));
+                loan.setUserId(rs.getLong("user_id"));
+                loan.setBookId(rs.getLong("book_id"));
                 loan.setLoanDate(rs.getDate("loan_date").toLocalDate());
                 loan.setDueDate(rs.getDate("due_date").toLocalDate());
                 loan.setReturnDate(rs.getDate("return_date").toLocalDate());
@@ -139,8 +139,8 @@ public class LoanDAO {
             while (rs.next()) {
                 Loan loan = new Loan();
                 loan.setId(rs.getString("id"));
-                loan.setUserId(rs.getString("user_id"));
-                loan.setBookId(rs.getString("book_id"));
+                loan.setUserId(rs.getLong("user_id"));
+                loan.setBookId(rs.getLong("book_id"));
                 loan.setLoanDate(rs.getDate("loan_date").toLocalDate());
                 loan.setDueDate(rs.getDate("due_date").toLocalDate());
                 loan.setReturnDate(rs.getDate("return_date").toLocalDate());
@@ -182,8 +182,8 @@ public class LoanDAO {
             ps = connection.prepareStatement(
                     "UPDATE loan SET user_id = ?, book_id = ?, loan_date = ?, due_date = ?, return_date = ?, is_returned = ? WHERE id = ?");
 
-            ps.setString(1, loan.getUserId());
-            ps.setString(2, loan.getBookId());
+            ps.setLong(1, loan.getUserId());
+            ps.setLong(2, loan.getBookId());
             ps.setDate(3, Date.valueOf(loan.getLoanDate()));
             ps.setDate(4, Date.valueOf(loan.getDueDate()));
             ps.setDate(5, Date.valueOf(loan.getReturnDate()));

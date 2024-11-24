@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrn.imd.database.DatabaseException;
+import br.ufrn.imd.exception.DatabaseException;
 import br.ufrn.imd.model.Book;
 import br.ufrn.imd.model.enums.Genre;
 
