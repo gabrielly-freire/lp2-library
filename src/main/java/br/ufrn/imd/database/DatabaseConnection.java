@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.ufrn.imd.exception.DatabaseException;
+
 /**
  * Classe responsável por gerenciar a conexão com o banco de dados.
  * 
